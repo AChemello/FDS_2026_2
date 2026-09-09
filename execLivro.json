@@ -1,0 +1,88 @@
+{
+    "info": {
+        "name": "execLivro - Biblioteca API",
+        "description": "Coleção de testes para a API Spring Boot do projeto execLivro (biblioteca).",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8080",
+            "description": "Substitua pela URL forwarded do seu Codespace, ex: https://seu-codespace-8080.app.github.dev"
+        }
+    ],
+    "item": [
+        {
+            "name": "Mensagem de boas-vindas",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        ""
+                    ]
+                },
+                "description": "Retorna a mensagem de boas-vindas da biblioteca."
+            },
+            "response": []
+        },
+        {
+            "name": "Listar livros",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/livros",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "livros"
+                    ]
+                },
+                "description": "Retorna a lista completa de livros cadastrados."
+            },
+            "response": []
+        },
+        {
+            "name": "Listar autores",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/autores",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "autores"
+                    ]
+                },
+                "description": "Retorna a lista de autores únicos."
+            },
+            "response": []
+        },
+        {
+            "name": "Listar títulos",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/titulos",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "titulos"
+                    ]
+                },
+                "description": "Retorna a lista de títulos dos livros."
+            },
+            "response": []
+        }
+    ]
+}
