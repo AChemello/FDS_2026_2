@@ -1,4 +1,4 @@
-package arthur.chemello.Livros;
+package a.c.execLivro.ExecAnterior1;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,15 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class Controller {
-    private List<Livro> livros;
+    private List<Livro> livros = new LinkedList<>();
 
     public Controller() {
-        livros = new LinkedList<>();
-        livros.add(new Livro(100, "Aprendendo Spring-Boot", "Huguinho Pato", 2020));
-        livros.add(new Livro(120, "Aprendendo Java", "Zezinho Pato", 2015));
-        livros.add(new Livro(140, "Aprendendo Outra coisa", "Luizinho Pato", 2023));
-        livros.add(new Livro(150, "Aprendendo Uma coisa nova", "Huguinho Pato", 2023));
-        livros.add(new Livro(170, "Aprendendo Outra coisa nova", "Huguinho Pato", 2023));
+        livros.add(new Livro(1, "O Senhor dos Anéis", "J.R.R. Tolkien", 1954));
+        livros.add(new Livro(2, "1984", "George Orwell", 1949));
+        livros.add(new Livro(3, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", 1943));
     }
 
     @GetMapping("")
