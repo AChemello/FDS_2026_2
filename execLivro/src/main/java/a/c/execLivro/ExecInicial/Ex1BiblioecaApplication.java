@@ -1,4 +1,4 @@
-package a.c.execLivro.ExecAnterior1;
+package a.c.execLivro.ExecInicial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

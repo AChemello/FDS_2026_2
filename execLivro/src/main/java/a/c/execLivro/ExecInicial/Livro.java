@@ -1,4 +1,4 @@
-package a.c.execLivro.ExecAnterior1;
+package a.c.execLivro.ExecInicial;
 
 public class Livro {
     private int id;

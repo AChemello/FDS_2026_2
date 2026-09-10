@@ -1,8 +1,8 @@
 package a.c.execLivro;
+
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.ArrayList;
-
 
 @Component
 public class AcervoMem implements IAcervo {
@@ -14,7 +14,7 @@ public class AcervoMem implements IAcervo {
     }
 
     @Override
-    public List<String> listarAutores() {
+    public List<String> listaAutores() {
         return livros.stream()
                 .map(Livro::getAutor)
                 .distinct()
@@ -23,6 +23,9 @@ public class AcervoMem implements IAcervo {
 
     @Override
     public List<String> LivrosAutorAno(String autor, int ano) {
-        return null;
+        return livros.stream()
+                .filter(l -> l.getAutor().equalsIgnoreCase(autor) && l.getAno() == ano)
+                .map(Livro::getTitulo)
+                .toList();
     }
 }
