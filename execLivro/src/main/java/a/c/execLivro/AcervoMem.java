@@ -1,36 +1,41 @@
 package a.c.execLivro;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.List;
-import java.util.ArrayList;
 
 @Component
 public class AcervoMem implements IAcervo {
-    private List<Livro> livros = new ArrayList<>();
+    private final LivrosRepository livrosRepository;
 
-    @Override
-    public List<Livro> listarLivros() {
-        return livros;
+    @Autowired
+    public AcervoMem(LivrosRepository livrosRepository){
+        this.livrosRepository = livrosRepository;
     }
 
     @Override
-    public List<String> listaAutores() {
-        return livros.stream()
-                .map(Livro::getAutor)
-                .distinct()
-                .toList();
+    public List<Livro> listarLivros(){
+        return livrosRepository.findAll();
     }
 
     @Override
-    public List<String> LivrosAutorAno(String autor, int ano) {
-        return livros.stream()
-                .filter(l -> l.getAutor().equalsIgnoreCase(autor) && l.getAno() == ano)
-                .map(Livro::getTitulo)
-                .toList();
+    public List<String> LivrosAutorAno(String autor, int ano){
+        return livrosRepository.findAll().stream()
+            .filter(l -> l.getAno() == ano)
+            .map(Livro::getTitulo)
+            .toList();
     }
 
     @Override
-    public void adicionar(Livro livro) {
-        livros.add(livro);
+    public List<String> listaAutores(){
+        return livrosRepository.findAll().stream()
+        .map(Livro::getAutor)
+        .distinct()
+        .toList();
+    }
+
+    @Override
+    public void adicionar(Livro livro){
+        livrosRepository.save(livro);
     }
 }
