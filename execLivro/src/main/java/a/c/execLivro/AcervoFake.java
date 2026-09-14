@@ -9,8 +9,7 @@ public class AcervoFake implements IAcervo {
         return List.of(
                 new Livro(1, "O Senhor dos Anéis", "J.R.R. Tolkien", 1954),
                 new Livro(2, "1984", "George Orwell", 1949),
-                new Livro(3, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", 1943)
-        );
+                new Livro(3, "O Pequeno Príncipe", "Antoine de Saint-Exupéry", 1943));
     }
 
     @Override
@@ -27,5 +26,10 @@ public class AcervoFake implements IAcervo {
                 .filter(l -> l.getAutor().equalsIgnoreCase(autor) && l.getAno() == ano)
                 .map(Livro::getTitulo)
                 .toList();
+    }
+
+    @Override
+    public void adicionar(Livro livro) {
+        throw new UnsupportedOperationException("AcervoFake é somente leitura, não suporta adicionar livros.");
     }
 }

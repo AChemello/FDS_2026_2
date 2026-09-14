@@ -28,4 +28,9 @@ public class AcervoMem implements IAcervo {
                 .map(Livro::getTitulo)
                 .toList();
     }
+
+    @Override
+    public void adicionar(Livro livro) {
+        livros.add(livro);
+    }
 }

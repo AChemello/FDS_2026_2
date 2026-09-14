@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class LivroController {
-    private final IAcervo  acervo;
+    private final IAcervo acervo;
 
     @Autowired
     public LivroController(IAcervo acervo) {
@@ -32,12 +32,6 @@ public class LivroController {
         return acervo.listarLivros();
     }
 
-    @GetMapping("autores")
-    @CrossOrigin(origins = "*")
-    public List<String> getListaAutores() {
-        return acervo.listaAutores();
-    }
-
     @GetMapping("livros/{id}")
     @CrossOrigin(origins = "*")
     public ResponseEntity<Livro> getLivroById(@PathVariable int id) {
@@ -48,15 +42,10 @@ public class LivroController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("livros/autor/{autor}/ano/{ano}")
+    @PostMapping("livros")
     @CrossOrigin(origins = "*")
-    public List<String> getLivrosByAutorAndAno(@PathVariable String autor, @PathVariable int ano) {
-        return acervo.LivrosAutorAno(autor, ano);
-    }
-
-    @PostMapping
-    @CrossOrigin(origins = "*")
-    public void adicionarLivro(@RequestBody Livro livro) {
-        // Implementação para adicionar um livro
+    public ResponseEntity<Livro> adicionarLivro(@RequestBody Livro livro) {
+        acervo.adicionar(livro);
+        return ResponseEntity.status(201).body(livro);
     }
 }
